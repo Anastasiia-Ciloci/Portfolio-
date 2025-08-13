@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Anastasiia Ciloci</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px 50px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .projects-container {
+      max-width: 1400px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .project {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      margin-bottom: 40px;
+      padding: 25px;
+    }
+
+    .project h2 {
+      margin-top: 0;
+      color: #222;
+    }
+
+   
+    .screenshots {
+      width: 100%;
+      height: auto;
+      width: 100%;    
+      display: block;
+      object-fit: contain;  /* Prevent cropping */      
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+      
+    }
+    .image-box{
+      object-fit: contain;
+      
+    }
+    .image-box-schema{
+      object-fit: contain;
+      width: 100%;
+      height: auto;
+      width: 100%;    
+      display: block;
+    }
+
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-top: 30px; 
+
+    }
+
+    .code-snippet {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 15px;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 1rem;
+      overflow-x: auto;
+      margin-bottom: 15px;
+    }
+
+    .source-link {
+      text-decoration: none;
+      font-weight: 600;
+      color: #3165f0;
+    }
+
+    .sql-snippet {
+      background-color: #f5f5f5;
+      color: #333;
+      font-family: Consolas, 'Courier New', monospace;
+      font-size: 14px;
+      padding: 20px;
+      border-radius: 6px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      width: auto;
+      margin: 40px auto;
+      border-left: 4px solid #007acc;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+
+    }
+
+
+ 
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Projects</h1>
+  </header>
+
+  <div class="projects-container">
+
+    <!-- Project 1 -->
+    <div class="project">
+      <h2>Project1: Population Segmentation Report</h2>
+
+      <div class="screenshots">
+        <div class="image-box">
+          <img src="Report1.png" alt="Population Segmentation Report">        
+        </div>
+      </div>  
+      <div class="screenshots">
+        <div class="image-box">        
+          <img class="image-box-schema"src="image1.png" alt="Schema">
+        </div>
+      </div>
+        
+     
+
+      <div class="description">
+        <h2>Objective</h2>
+
+Aim: The objective of the Population Segmentation Report is to provide a structured, data-driven overview of member utilization and risk patterns across various dimensions, enabling compliance with state reporting requirements and supporting strategic decision-making in healthcare management.
+        <div style="background-color:#fefefe; border:1px solid #ddd; padding:20px; border-radius:8px; font-family:Arial, sans-serif;margin-top:20px;">
+  <h2 style="margin-top:20px;">🎯 Main Requirements</h2>
+  
+  <h3>1. Regulatory Compliance</h3>
+  <ul>
+    <li>Fulfill biannual reporting requirements to the state</li>
+    <li>Ensure transparency and accountability in member care and cost patterns</li>
+  </ul>
+
+  <h3>2. Population Health Insights</h3>
+  <ul>
+    <li>Segment members by line of business (LOB), provider, demographics, and utilization</li>
+    <li>Identify low-risk populations (e.g., those with only preventive visits or no claims)</li>
+    <li>Flag high-cost or high-utilization members for care coordination or case management</li>
+  </ul>
+
+  <h3>3. Provider and Facility Performance</h3>
+  <ul>
+    <li>Analyze ER and inpatient activity by facility, diagnosis grouping, and PCP attribution</li>
+    <li>Support provider engagement and performance improvement initiatives</li>
+  </ul>
+
+  <h3>4. Cost and Risk Stratification</h3>
+  <ul>
+    <li>Track members with claims exceeding thresholds (e.g., $70,000)</li>
+    <li>Identify patterns in ER visits and inpatient admits to inform risk mitigation strategies</li>
+  </ul>
+
+  <h3>5. Trend Analysis</h3>
+  <ul>
+    <li>Enable year-to-date (YTD) comparisons across reporting periods</li>
+    <li>Monitor shifts in member behavior, provider performance, and cost drivers</li>
+  </ul>
+
+  <h2>📊 Sorting</h2>
+  <p>The ability to sort by:</p>
+  <ul>
+    <li>LOB, PCP, Age, Sex, Facility, Diagnosis, YTD</li>
+    <p>…ensures that stakeholders can:</p>
+  </ul>
+  
+  <ul>
+    <li>Drill down into specific segments</li>
+    <li>Compare across groups</li>
+    <li>Tailor interventions to the right populations</li>
+  </ul>
+</div>
+
+
+  <div class="code-snippet">
+    <pre><code>// DAX snippets
+MemberswithNoclaims = FactEnrollment[Unique Members]-FactClaim[ClaimUniquemembers]  
+Unique Members = DISTINCTCOUNT(FactEnrollment[memberid])
+ClaimUniquemembers = DISTINCTCOUNT(FactClaim[MemberSK])
+
+    </code></pre>
+  </div>
+
+  <div class="sql-snippet">
+    <div style="
+    background-color: #f8f9fa; 
+    color: #212529; 
+    font-family: 'Courier New', Courier, monospace; 
+    font-size: 14px; 
+    line-height: 1.5; 
+    padding: 20px; 
+    border: 1px solid #ced4da; 
+    border-radius: 8px; 
+    overflow-x: auto; 
+    white-space: pre-wrap;
+">
+<h3>Source code for MembersWithERVisits dataset</h3>
+-- 1. Declare Date Variables  
+DECLARE @start_date DATE;  
+DECLARE @end_date_enroll DATE;  
+DECLARE @end_date_dos DATE;  
+DECLARE @start_date_int INT;  
+DECLARE @end_date_int_enroll INT;  
+DECLARE @end_date_int_dos INT;  
+
+-- 2. Set Dates Based on Current Month  
+IF MONTH(GETDATE()) IN (9, 10, 11, 12)  
+BEGIN  
+    -- Use current year  
+    SET @start_date        = CAST(CAST(YEAR(GETDATE()) AS VARCHAR) + '-01-01' AS DATE);  
+    SET @end_date_enroll   = CAST(CAST(YEAR(GETDATE()) AS VARCHAR) + '-12-01' AS DATE);  
+    SET @end_date_dos      = CAST(GETDATE() AS DATE);  
+END  
+ELSE  
+BEGIN  
+    -- Use previous year  
+    SET @start_date        = CAST(CAST(YEAR(GETDATE()) - 1 AS VARCHAR) + '-01-01' AS DATE);  
+    SET @end_date_enroll   = CAST(CAST(YEAR(GETDATE()) - 1 AS VARCHAR) + '-12-01' AS DATE);  
+    SET @end_date_dos      = CAST(CAST(YEAR(GETDATE()) - 1 AS VARCHAR) + '-12-31' AS DATE);  
+END  
+
+-- 3. Convert Dates to Integer Format (YYYYMMDD)  
+SET @start_date_int        = CAST(CONVERT(VARCHAR, @start_date, 112) AS INT);  
+SET @end_date_int_enroll   = CAST(CONVERT(VARCHAR, @end_date_enroll, 112) AS INT);  
+SET @end_date_int_dos      = CAST(CONVERT(VARCHAR, @end_date_dos, 112) AS INT);  
+
+-- 4. CTE: Members Enrolled in Date Range  
+WITH Members AS (  
+    SELECT   
+        f.MemberSK,  
+        f.ProgramID,  
+        p.[Program Name]  
+    FROM dbo.FactEnrollment f WITH (NOLOCK)  
+    LEFT JOIN dbo.DimProgram p WITH (NOLOCK) ON f.ProgramID = p.ProgramID  
+    WHERE f.Mem_YYYYMM BETWEEN @start_date_int AND @end_date_int_enroll  
+    GROUP BY f.MemberSK, f.ProgramID, p.[Program Name]  
+),  
+
+-- 5. CTE: Members with 3+ ER Visits  
+MembersWithERVisits AS (  
+    SELECT   
+        p.[Program Name] AS Program,  
+        a.MemberSK,  
+        f.PCPProvSK       AS pcp,  
+        f.AgeGroupSK      AS agegr,  
+        f.ClaimID_Base,  
+        f.PrimaryDiag,  
+        f.DOS_YYYYMM,  
+        COUNT(DISTINCT a.StartDateHeader) AS Visits  
+    FROM (  
+        SELECT   
+            MemberSK,  
+            ClaimID_Base,  
+            MAX(ERFlag1) AS ERFlag,  
+            StartDateHeader,  
+            ProgramSK  
+        FROM dbo.FactClaim WITH (NOLOCK)  
+        WHERE ERFlag1 = 1  
+        AND StartDateHeader BETWEEN @start_date_int AND @end_date_int_dos  
+        GROUP BY MemberSK, StartDateHeader, ProgramSK, ClaimID_Base  
+    ) a  
+    JOIN Members m ON m.MemberSK = a.MemberSK  
+    JOIN dbo.DimProgram p ON p.ProgramSK = a.ProgramSK  
+    JOIN dbo.FactClaim f ON m.MemberSK = f.MemberSK  
+    GROUP BY   
+        p.[Program Name],  
+        a.MemberSK,  
+        f.PCPProvSK,  
+        f.AgeGroupSK,  
+        f.ClaimID_Base,  
+        f.PrimaryDiag,  
+        f.DOS_YYYYMM  
+    HAVING COUNT(DISTINCT a.StartDateHeader) >= 3  
+)  
+
+-- 6. Final Select: Output Members with 3+ ER Visits  
+SELECT   
+    MemberSK,  
+    Program,  
+    agegr,  
+    pcp,  
+    ClaimID_Base,  
+    PrimaryDiag,  
+    DOS_YYYYMM  
+FROM MembersWithERVisits  
+GROUP BY   
+    Program,  
+    MemberSK,  
+    ClaimID_Base,  
+    pcp,  
+    agegr,  
+    PrimaryDiag,  
+    DOS_YYYYMM;
+</div>
+  </div>  
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project">
+      <h2>Project 2 KPI: </h2>
+
+      <div class="screenshots">
+        <img src="image2.png" alt="KPIScreenshot">
+      </div>
+
+      
+      <div class="code-snippet">
+<pre><code>
+  <h3>Dax snippets</h3>
+//color font measure
+CF Enrollment =
+VAR CurrentMonthEnroll = [CurrentMemberMonths]
+VAR PrevMonthEnroll =
+    CALCULATE(
+        [Member Months],
+        DATEADD(DimDate[FullDateAlternateKey], -1, MONTH)
+    )
+Return 
+If ((CurrentMonthEnroll-PM) < 0 , 1,0)
+
+
+//past month enrollment
+PM Enrollment =
+VAR DownArrow = UNICHAR(9660)  -- ▼
+VAR UpArrow = UNICHAR(9650)    -- ▲
+VAR CurrentMonthEnroll = [CurrentMemberMonths]
+VAR PrevMonthEnroll =
+    CALCULATE(
+        [Member Months],
+        DATEADD(DimDate[FullDateAlternateKey], -1, MONTH)
+    )
+VAR Diff = CurrentMonthEnroll - PrevMonthEnroll
+VAR PercentChange = DIVIDE(Diff, PrevMonthEnroll)
+
+RETURN
+    "PM " & Diff & " (" & FORMAT(PercentChange, "0.0%") & ") " &
+    IF(Diff > 0, UpArrow, DownArrow)
+
+
+
+
+
+</code></pre>
+      </div>  
+  </div>
+</div>
+      <!-- Project 3 -->
+    <div class="project">
+      <h2>Project 2 KPI -90 days lag: </h2>
+
+      <div class="screenshots">
+        <img src="image3.png" alt="KPIScreenshot">
+      </div>
+
+      
+      <div class="code-snippet">
+<pre><code>
+  <h3>Dax snippets</h3>
+
+CF inp kpi -90 = 
+
+var startofPY = DATE(YEAR(TODAY()) - 1, MONTH(TODAY()) - 4, 1)
+var endofPY = DATE(YEAR(TODAY()) - 1, MONTH(TODAY()) - 3, 1)-1
+var threemonthsback = EOMONTH(TODAY(), -4)
+var fourmonthsback = EOMONTH(TODAY(), -5)+1 
+
+var valuePY =  format(CALCULATE([Admits],datesbetween(DimDate[FullDateAlternateKey],startofPY,endofPY)),"0.0000")
+var valueCY =  format(calculate([Admits],DATESBETWEEN(DimDate[FullDateAlternateKey],fourmonthsback,threemonthsback)),"0.0000")
+return if((valueCY-valuePY)*100 >0, 1,0)
+
+</code></pre>
+      </div>  
+</div>
+
+        <!-- Project 4 -->
+    <div class="project">
+      <h2>DAX selected filters functionality: </h2>
+
+      <div class="screenshots">
+        <img src="image4.png" alt="KPIScreenshot">
+      </div>
+
+      
+      <div class="code-snippet">
+<pre><code>
+  <h3>Dax snippets</h3>
+
+Selected filters =
+VAR MaxFilters = 3
+
+RETURN
+    IF (
+        ISFILTERED ( DimDate[Date] ),
+        VAR __f1 = FILTERS ( DimDate[Date] )
+        VAR __r1 = COUNTROWS ( __f1 )
+        VAR __t1 = TOPN ( MaxFilters, __f1, DimDate[Date] )
+        VAR __d1 = CONCATENATEX ( __t1, DimDate[Date], ", " )
+        VAR __x1 =
+            "Date: " & __d1 &
+            IF ( __r1 > MaxFilters, ", ... [" & __r1 & " items selected]" ) & " "
+        RETURN __x1 & UNICHAR(13) & UNICHAR(10)
+    )
+    &
+    IF (
+        ISFILTERED ( DimDate[FullDateAlternateKey] ),
+        VAR __f2 = FILTERS ( DimDate[FullDateAlternateKey] )
+        VAR __r2 = COUNTROWS ( __f2 )
+        VAR __t2 = TOPN ( MaxFilters, __f2, DimDate[FullDateAlternateKey] )
+        VAR __d2 = CONCATENATEX ( __t2, DimDate[FullDateAlternateKey], ", " )
+        VAR __x2 =
+            "Full date: " & __d2 &
+            IF ( __r2 > MaxFilters, ", ... [" & __r2 & " items selected]" ) & " "
+        RETURN __x2 & UNICHAR(13) & UNICHAR(10)
+    )
+</code></pre>
+      </div>  
+
+    
+        <!-- Project 5 -->
+    <div class="project">
+      <h2>Dashboard example: </h2>
+
+      <div class="screenshots">
+        <img src="image5.png" alt="KPIScreenshot">
+      </div>
+
+      
+
+
+  </div>
+</body>
+</html>

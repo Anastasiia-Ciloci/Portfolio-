@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anastasiia Ciloci | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #000;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+    }
+
+    .sidebar {
+      background-color: #e1d4c8;
+      width: 35%;
+      padding: 40px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-card {
+      background: #d3d3d3;
+      padding: 30px 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .profile-img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .name {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .title {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin: 10px 0 20px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .icons a {
+      color: #000;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .main-content {
+      width: 65%;
+      padding: 60px 50px;
+    }
+
+    .main-content h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .buttons {
+      margin: 30px 0;
+    }
+
+    .buttons button {
+      font-size: 0.85rem;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      margin-right: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .buttons .resume-btn {
+      background-color: #3165f0;
+      color: white;
+    }
+
+    .buttons .projects-btn {
+      background-color: transparent;
+      border: 1.5px solid #000;
+      color: black;
+    }
+
+    .description {
+      max-width: 500px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      padding: 20px 50px;
+      background: #fff;
+      border-top: 1px solid #eee;
+    }
+
+    footer a {
+      color: #000;
+      text-decoration: none;
+      margin-left: 8px;
+    }
+
+    @media(max-width: 900px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar, .main-content {
+        width: 100%;
+      }
+
+      .main-content {
+        padding: 40px 20px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="sidebar">
+      <div class="profile-card">
+        <img src="2025-04-14 18-32-29.JPG" alt="Profile" class="profile-img">
+        <div class="name">Anastasiia<br><strong>Ciloci</strong></div>
+        <div class="title">BI Developer | Data Analyst</div>
+        <div class="icons">
+          <a href="https://github.com/Anastasiia-Ciloci"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/anastasiia-c-46771b130"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <h1>Welcome to Portfolio</h1>
+      <div class="subtitle">Showcasing my work & expertise</div>
+      <div class="buttons">
+        <button class="resume-btn" onclick="window.open('AnastasiiaCilociResume.pdf', '_blank')">RESUME</button>
+        <button class="projects-btn" onclick="window.open('projects.html', '_blank')">PROJECTS</button>
+      </div>
+      <div class="description">
+        I’m a Microsoft Business Intelligence Developer with over 5 years of experience transforming raw data into meaningful insights that drive smarter decisions. My expertise spans the full MS BI stack—SSMS, SSIS, SSRS, SSAS—across Development, Test, and Production environments. I specialize in Power BI and SQL Server, with a strong foundation in database design, ETL development, and performance optimization.
+      </div>
